@@ -30,10 +30,10 @@ namespace qubic_microservice.Controllers
             if (response.IsSuccessStatusCode)
             {
                 var responseData = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("responseData: " + responseData);
+                //Console.WriteLine("responseData: " + responseData);
 
                 // Deserialize the response data to a dynamic object
-                var deserializedData = JsonConvert.DeserializeObject(responseData);
+                // var deserializedData = JsonConvert.DeserializeObject(responseData);
 
                 // Return the deserialized data as JSON
                 return Ok(responseData);

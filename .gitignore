@@ -1,0 +1,67 @@
+# .gitignore for ASP.NET Core projects
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore Rider project files
+.idea/
+
+# Ignore Visual Studio Code workspace settings
+.vscode/
+
+# Ignore ASP.NET Core secrets
+**/secrets.json
+
+# Ignore .NET Core project files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.pid
+*.gz
+*.swp
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore JetBrains Rider files
+.idea/
+*.sln.iml
+
+# Ignore coverage reports
+coverage/
+*.coverage
+*.coveragexml
+*.log
+TestResults/
+
+# Ignore other files
+*.vspscc
+*.vssscc
+_ReSharper*
+*.[Cc]ache/
+*.bak
+*.swp
+*.orig
+*.rej
+*.sln.docstates
