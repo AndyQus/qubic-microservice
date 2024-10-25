@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Pc6XX1lmtsNstPnL7hmkjJfrbh/F2BGEbxyvR6JKBYo=",
+  "Source": "qubic-microservice",
+  "BasePath": "_content/qubic-microservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
