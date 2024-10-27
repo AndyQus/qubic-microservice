@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  qubic-microservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MongoDBSettings__ConnectionString=mongodb://mongo:27017
+      - MongoDBSettings__DatabaseName=QubicMicroserviceDB
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: qubic_mongo
+    environment:
+      - MONGO_INITDB_DATABASE=QubicMicroserviceDB
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./mongo-seed/seed.js:/docker-entrypoint-initdb.d/seed.js:ro
+
+volumes:
+  mongo-data:
