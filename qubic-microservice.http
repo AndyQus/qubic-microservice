@@ -1,6 +1,0 @@
-@qubic_microservice_HostAddress = http://localhost:5226
-
-GET {{qubic_microservice_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
