@@ -75,7 +75,7 @@ QubicMicroservice/
 5. **Swagger API Documentation**:
    When the application is running, Swagger documentation is accessible at:
    ```plaintext
-   http://localhost:8080/docs
+   http://localhost:8080/swagger
    ```
    Use this interface to explore and test all available API endpoints.
 

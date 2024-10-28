@@ -55,7 +55,7 @@ public class Startup
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "QubicMicroservice API V1");
-                c.RoutePrefix = "docs";
+                c.RoutePrefix = "swagger";
             });
         }
         else
