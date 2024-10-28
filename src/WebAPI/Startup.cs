@@ -26,6 +26,8 @@ public class Startup
         services.AddScoped<ITransactionRepository, TransactionRepository>();
         services.AddScoped<ITransactionService, TransactionService>();
 
+        services.AddHttpClient();
+
         services.AddControllers()
         .AddJsonOptions(options =>
         {
