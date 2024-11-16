@@ -1,14 +1,16 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using System.Text.Json;
+using StackExchange.Redis;
 
-using QubicMicroservice.Domain.Interfaces;
-using QubicMicroservice.Infrastructure.Repositories;
-using QubicMicroservice.Infrastructure.Data;
 using QubicMicroservice.Application.Interfaces;
 using QubicMicroservice.Application.Services;
+using QubicMicroservice.Domain.Interfaces;
+using QubicMicroservice.Infrastructure.Data;
+using QubicMicroservice.Infrastructure.Messaging;
+using QubicMicroservice.Infrastructure.Repositories;
 
-namespace QubicMicroservice.WebAPI;
+namespace QubicMicroservice.Api.WebAPI;
 
 public class Startup
 {
@@ -25,6 +27,19 @@ public class Startup
         services.AddSingleton<MongoDBContext>();
         services.AddScoped<ITransactionRepository, TransactionRepository>();
         services.AddScoped<ITransactionService, TransactionService>();
+
+        var redisConfig = new ConfigurationOptions
+        {
+            EndPoints = { Environment.GetEnvironmentVariable("REDIS_ENDPOINT") },
+            User = Environment.GetEnvironmentVariable("REDIS_USER"),
+            Password = Environment.GetEnvironmentVariable("REDIS_PASSWORD"),
+            Ssl = bool.TryParse(Environment.GetEnvironmentVariable("REDIS_SSL"), out var ssl) && ssl,
+            AbortOnConnectFail = false
+        };
+        // Redis Pub/Sub
+        services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConfig));
+        services.AddScoped<IPubSubClient, PubSubClient>();
+        services.AddHostedService<PubSubBackgroundService>();
 
         services.AddHttpClient();
 

@@ -68,3 +68,8 @@ _ReSharper*
 
 # Ignore draft folders
 **/drafts
+
+.fake
+
+# Env
+**/.env**

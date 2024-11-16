@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using QubicMicroservice.Application.Interfaces;
 using QubicMicroservice.Application.DTOs;
 
-namespace QubicMicroservice.WebAPI.Controllers;
+namespace QubicMicroservice.Api.Controllers;
 
 [ApiController]
 [Route("api/transactions")]

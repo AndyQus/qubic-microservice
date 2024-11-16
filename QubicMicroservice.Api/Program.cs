@@ -1,9 +1,12 @@
-namespace QubicMicroservice.WebAPI;
+using DotNetEnv;
+
+namespace QubicMicroservice.Api.WebAPI;
 
 public static class Program
 {
     public static void Main(string[] args)
     {
+        Env.Load("../.env");
         CreateHostBuilder(args).Build().Run();
     }
 
