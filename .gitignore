@@ -73,3 +73,4 @@ _ReSharper*
 
 # Env
 **/.env**
+!.env.example
